@@ -1,21 +1,26 @@
 package controller;
 
-import java.sql.Connection;
+import java.io.IOException;
 
 import utility.ConnectionManager;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class Main {
-	public static void main(String args[]) {
+	public static void main(String args[]) throws Exception
+	{
+		Connection cn = ConnectionManager.getConnection();
 		
-	ConnectionManager cm = new ConnectionManager();
-	if(cm.getConnection()!=null)
-	{
-		System.out.println("Connection established");
-	}
-	else
-	{
-		System.out.println("Check your connection");
-	}
-	
+		
+		
+		if(cn!=null)
+		{
+			System.out.println("Connection Established");
+		}
+		else
+		{
+			System.out.println("Check your Connection");
+		}
 	}
 }
